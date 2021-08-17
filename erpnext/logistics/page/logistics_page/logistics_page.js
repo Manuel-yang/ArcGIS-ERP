@@ -29,7 +29,7 @@ frappe.pages['logistics-page'].on_page_load = function(wrapper) {
 
 	// 获取分组数据
 	frappe.call({
-		method:'erpnext.logistics.page.logistics_page.logistics_page.get_list',
+		method:'erpnext.logistics.page.logistics_page.logistics_page.get_group',
 		callback: function(r) {
 			groupList = r.message
 		}
@@ -95,7 +95,7 @@ function generateGroup(rawData) {
 
 function filterList(name) {
 	frappe.call({
-		method: 'erpnext.logistics.page.logistics_page.logistics_page.filterList',
+		method: 'erpnext.logistics.page.logistics_page.logistics_page.filterGroup',
 		args: {groupName: name},
 		callback: function(r) {
 			let newData = r.message
