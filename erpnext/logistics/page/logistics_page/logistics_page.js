@@ -1,8 +1,10 @@
 let mymap;
 let count=0;
+let groupList;
+let page;
 
 frappe.pages['logistics-page'].on_page_load = function(wrapper) {
-	var page = frappe.ui.make_app_page({
+		page = frappe.ui.make_app_page({
 		parent: wrapper,
 		title: 'Logistics',
 		single_column: true,
@@ -25,14 +27,22 @@ frappe.pages['logistics-page'].on_page_load = function(wrapper) {
 	js.src = "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js";
 	document.head.appendChild(js);
 
+	// 获取分组数据
+	frappe.call({
+		method:'erpnext.logistics.page.logistics_page.logistics_page.get_list',
+		callback: function(r) {
+			groupList = r.message
+		}
+	})
+
+	// 获取组内数据
 	js.onload = function() {
 		frappe.call({
 			method: 'erpnext.logistics.page.logistics_page.logistics_page.get_data',
 			callback: function(r) {
 				let data = r.message;
-				console.log(data[0][0])
-				$(frappe.render_template('logistics_page', {'data': data})).appendTo(page.main);
-
+			
+				$(frappe.render_template('logistics_page', {'data': data, 'group': groupList})).appendTo(page.main);
 				// 开始初始化地图
 				mymap = L.map('mapid').setView([32.03602003973757,-241.22680664062503], 5);
 				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -70,4 +80,20 @@ function drawLine(rawData) {
 	this.pLineGroup.addLayer( L.polyline(latlngs, {color: '#64C9CF'}))
 	pLineGroup.addTo(mymap)
 	L.marker(latlngs[latlngs.length-1]).addTo(pLineGroup)
+}
+
+function generateGroup(rawData) {
+	let data = rawData.getAttribute('data')
+	filterList(data)
+}
+
+function filterList(name) {
+	frappe.call({
+		method: 'erpnext.logistics.page.logistics_page.logistics_page.filterList',
+		args: {groupName: name},
+		callback: function(r) {
+			let newData = r.message
+			$('#list').replaceWith(frappe.render_template('logistics_page_list', {'data': newData}))
+		}
+	})
 }

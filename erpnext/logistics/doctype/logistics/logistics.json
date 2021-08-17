@@ -9,6 +9,8 @@
   "projectname",
   "location",
   "date",
+  "group",
+  "description",
   "coordinate"
  ],
  "fields": [
@@ -39,11 +41,23 @@
    "fieldtype": "Text",
    "label": "coordinate",
    "reqd": 1
+  },
+  {
+   "fieldname": "group",
+   "fieldtype": "Link",
+   "label": "Group",
+   "options": "Logistics Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-08-16 12:20:58.417440",
+ "modified": "2021-08-17 11:04:21.367774",
  "modified_by": "Administrator",
  "module": "Logistics",
  "name": "Logistics",
