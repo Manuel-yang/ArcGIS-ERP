@@ -61,13 +61,17 @@ frappe.pages['logistics-page'].on_page_load = function(wrapper) {
 
 function updateLine(rawData) {
 	if (count == 0) {
+		$('button').removeClass("active")
 		drawLine(rawData);
 		count++;
+		$(rawData).addClass("active")
 		return;
 	}
 	else {
+		$('button').removeClass("active")
 		pLineGroup.removeFrom(mymap);
 		drawLine(rawData);
+		$(rawData).addClass("active")
 		return;
 	}
 }
@@ -83,7 +87,9 @@ function drawLine(rawData) {
 }
 
 function generateGroup(rawData) {
+	$('a').removeClass("active")
 	let data = rawData.getAttribute('data')
+	$(rawData).addClass("active")
 	filterList(data)
 }
 

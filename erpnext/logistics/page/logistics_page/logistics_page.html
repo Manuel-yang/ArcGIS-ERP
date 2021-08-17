@@ -4,12 +4,12 @@
     <div class="col-sm-2">
       <div class="list-group">
         {% for d in group %}
-          <button onclick="generateGroup(this)" data="{{ d[0] }}" class=" list-group-item list-group-item-action" aria-current="true">
+          <a id="group" onclick="generateGroup(this)" data="{{ d[0] }}" class=" list-group-item list-group-item-action" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">{{ d[0] }}</h5>
             </div>
             <small>And some small print.</small>
-          </button>
+          </a>
         {% endfor %}
       </div>
     </div>
