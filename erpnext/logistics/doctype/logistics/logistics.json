@@ -11,6 +11,7 @@
   "date",
   "group",
   "description",
+  "originaladdress",
   "coordinate"
  ],
  "fields": [
@@ -53,11 +54,17 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "originaladdress",
+   "fieldtype": "Data",
+   "label": "Original address",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-08-17 11:04:21.367774",
+ "modified": "2021-08-18 10:13:30.866887",
  "modified_by": "Administrator",
  "module": "Logistics",
  "name": "Logistics",

@@ -43,17 +43,9 @@ frappe.pages['logistics-page'].on_page_load = function(wrapper) {
 				let data = r.message;
 			
 				$(frappe.render_template('logistics_page', {'data': data, 'group': groupList})).appendTo(page.main);
+				
 				// 开始初始化地图
-				mymap = L.map('mapid').setView([32.03602003973757,-241.22680664062503], 5);
-				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-					attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-					maxZoom: 18,
-					id: 'mapbox/streets-v11',
-					tileSize: 512,
-					zoomOffset: -1,
-					accessToken: 'pk.eyJ1IjoieWFuYWVtb25zIiwiYSI6ImNrczN6MjN4eTBydWszMXBpaDF6ZjRjdTgifQ.Vkl7ugCcEhVBUd8Qzm8hiA'
-						}).addTo(mymap);
-						pLineGroup = L.layerGroup();
+				generateMap();
 			}
 		});
 	}
@@ -83,7 +75,40 @@ function drawLine(rawData) {
 	mymap.setView(latlngs[latlngs.length-1], 5)
 	this.pLineGroup.addLayer( L.polyline(latlngs, {color: '#64C9CF'}))
 	pLineGroup.addTo(mymap)
-	L.marker(latlngs[latlngs.length-1]).addTo(pLineGroup)
+
+	// 定义marker
+	var carIcon = new L.Icon({
+		iconUrl: '/assets/erpnext/images/car.svg',
+		iconSize: [25, 41],
+		iconAnchor: [12, 41],
+		popupAnchor: [1, -34],
+		shadowSize: [41, 41]
+	});
+
+	var warehouseIcon = new L.Icon({
+		iconUrl: '/assets/erpnext/images/warehouse.svg',
+		shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+		iconSize: [25, 41],
+		iconAnchor: [12, 41],
+		popupAnchor: [1, -34],
+		shadowSize: [41, 41]
+	});
+
+	let deliverContent = rawData.getAttribute('content')
+	let originalContent = rawData.getAttribute('originalAddress')
+
+	var delivering = L.popup()
+    .setContent(`<b>Delivering</b><p>content:${deliverContent}</p>`);
+
+	var originalAddress  = L.popup()
+	.setContent(`<b>Original Address</b><p>Address:${originalContent}</p>`);
+
+	L.marker(latlngs[latlngs.length-1], {icon: carIcon})
+		.bindPopup(delivering)
+		.addTo(pLineGroup)
+	L.marker(latlngs[0], {icon: warehouseIcon})
+		.bindPopup(originalAddress)
+		.addTo(pLineGroup)
 }
 
 function generateGroup(rawData) {
@@ -102,4 +127,17 @@ function filterList(name) {
 			$('#list').replaceWith(frappe.render_template('logistics_page_list', {'data': newData}))
 		}
 	})
+}
+
+function generateMap() {
+	mymap = L.map('mapid').setView([32.03602003973757,-241.22680664062503], 5);
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		maxZoom: 18,
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1,
+		accessToken: 'pk.eyJ1IjoieWFuYWVtb25zIiwiYSI6ImNrczN6MjN4eTBydWszMXBpaDF6ZjRjdTgifQ.Vkl7ugCcEhVBUd8Qzm8hiA'
+			}).addTo(mymap);
+			pLineGroup = L.layerGroup();
 }

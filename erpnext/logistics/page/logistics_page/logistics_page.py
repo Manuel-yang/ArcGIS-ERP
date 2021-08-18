@@ -5,7 +5,7 @@ import frappe;
 @frappe.whitelist()
 def get_data():
   data = frappe.db.get_list('Logistics',
-    fields=['projectname', 'location', 'date', 'coordinate', 'description'],
+    fields=['projectname', 'location', 'date', 'coordinate', 'description', 'originaladdress'],
     as_list=True)
   return data
 
