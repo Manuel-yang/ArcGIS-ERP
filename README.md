@@ -1,10 +1,5 @@
 
-ERPNext
-ERP made simple
-
-CI Open Source Helpers Coverage Status
-
-https://erpnext.com
+https://docs.erpnext.com/
 
 -------------------以上为官方文档-------------------
 
