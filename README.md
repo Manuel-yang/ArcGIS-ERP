@@ -123,3 +123,67 @@ Install git, python, and redis
 ```
 apt install git python-dev redis-server
 ```
+Install MariaDB
+```
+apt-get install software-properties-common
+```
+If you are on Ubuntu version older than 20.04, run this before installing MariaDB:
+```
+apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.ubuntu-tw.org/mirror/mariadb/repo/10.3/ubuntu xenial main'
+```
+If you are on version Ubuntu 20.04, then MariaDB is available in default repo and you can directly run the below commands to install it:
+```
+apt-get update
+apt-get install mariadb-server-10.3
+```
+During this installation you'll be prompted to set the MySQL root password. If you are not prompted, you'll have to initialize the MySQL server setup yourself. You can do that by running the command:
+```
+mysql_secure_installation
+```
+It is really important that you remember this password, since it'll be useful later on. You'll also need the MySQL database development files.
+```
+apt-get install libmysqlclient-dev
+```
+Now, edit the MariaDB configuration file.
+```
+nano /etc/mysql/my.cnf
+```
+And add this configuration
+```
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+```
+Now, just restart the mysql service and you are good to go.
+```
+service mysql restart
+```
+###  Install Node
+We recommend installing node using nvm
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+```
+After nvm is installed, you may have to close your terminal and open another one. Now run the following command to install node.
+```
+nvm install 12
+```
+Verify the installation, by running:
+```
+node -v
+# output
+v12.16.2
+```
+Finally, install yarn using npm
+```
+npm install -g yarn
+```
+###  Install wkhtmltopdf
+```
+apt-get install xvfb libfontconfig wkhtmltopdf
+```
+
