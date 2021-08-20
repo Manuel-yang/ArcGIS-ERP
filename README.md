@@ -117,7 +117,7 @@ When in doubt about your use of the ERPNext name or logo, please contact Frappe 
 
 -------------------以上为官方文档-------------------
 
-### App的环境部署
+### 1. App的环境部署
 Install git, python, and redis
 
 ```
@@ -186,4 +186,45 @@ npm install -g yarn
 ```
 apt-get install xvfb libfontconfig wkhtmltopdf
 ```
+
+
+
+### 2. 安装bench
+You need to install the following packages for the script to run:
+```
+$ apt install python3-minimal build-essential python3-setuptools
+
+```
+
+```
+$ pip install frappe-bench
+```
+
+### 3. 安装App
+Create a new bench:
+
+```
+$ bench init [bench-name]
+```
+Add a site under current bench:
+```
+$ bench new-site [site-name]
+```
+Download and add applications to bench:
+```
+$ bench get-app [app-name] [app-link]
+```
+Install apps on a particular site
+```
+$ bench --site [site-name] install-app [app-name]
+```
+Start bench (only for development)
+```
+$ bench start
+```
+Show bench help:
+```
+$ bench --help
+```
+
 
