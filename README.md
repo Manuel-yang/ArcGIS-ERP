@@ -113,3 +113,7 @@ Please note that it is not the goal of this policy to limit commercial activity 
 When in doubt about your use of the ERPNext name or logo, please contact Frappe Technologies for clarification.
 
 (inspired by WordPress)
+-------------------以上为官方文档-------------------
+
+### App的安装
+Install git, python, and redis
