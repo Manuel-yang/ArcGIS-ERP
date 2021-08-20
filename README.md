@@ -227,4 +227,28 @@ Show bench help:
 $ bench --help
 ```
 
+### Module的添加
+1. Serach module in the search bar
+2. Choose the module list
+3. Write down the module name
+
+
+### Doctype的添加
+1. Serach Doctype in the search bar
+2. Choose the Doctype list
+3. Write down the Doctype name
+4. Define the doctype field  (Doctype is like your data's format) , open "Edit" button and you can select the "show in the grid list" and "mandatory" if you want
+5. Choose the view block, define you doctype list(field: <your fieldname>)
+
+### Workspace的添加
+1. Serach workspace in the search bar
+2. Choose the workspace list
+3. Choose the module name
+4. Select "Is starded" checkbox if you want to show it in the desk
+
+### Workspace的编写
+1. Open your workspace in the desk
+2. Click the "Customize" button and then you can add block
+3. When you add a block, the framework will generate the file in apps/erpenxt/<your module name>/page(or else...) automaticly, you can code them directly
+
 
