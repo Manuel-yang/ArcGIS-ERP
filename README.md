@@ -1,9 +1,10 @@
 
-    <img src="https://raw.githubusercontent.com/frappe/erpnext/develop/erpnext/public/images/erpnext-logo.png" height="128">
-    <h2>ERPNext</h2>
-    <p align="center">
-        <p>ERP made simple</p>
-    </p>
+ERPNext
+ERP made simple
+
+CI Open Source Helpers Coverage Status
+
+https://erpnext.com
 
 -------------------以上为官方文档-------------------
 
