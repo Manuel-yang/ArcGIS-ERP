@@ -117,7 +117,7 @@ When in doubt about your use of the ERPNext name or logo, please contact Frappe 
 
 -------------------以上为官方文档-------------------
 
-### App的安装
+### App的环境部署
 Install git, python, and redis
 
 ```
