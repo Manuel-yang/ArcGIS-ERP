@@ -1,14 +1,14 @@
 {
  "actions": [],
  "autoname": "field:projectname",
- "creation": "2021-08-15 21:29:51.738913",
+ "creation": "2021-08-24 15:05:14.439030",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "projectname",
   "location",
-  "date",
+  "dae",
   "group",
   "description",
   "originaladdress",
@@ -31,21 +31,16 @@
    "reqd": 1
   },
   {
-   "fieldname": "date",
+   "fieldname": "dae",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Date",
    "reqd": 1
   },
   {
-   "fieldname": "coordinate",
-   "fieldtype": "Text",
-   "label": "coordinate",
-   "reqd": 1
-  },
-  {
    "fieldname": "group",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Group",
    "options": "Logistics Group",
    "reqd": 1
@@ -58,16 +53,23 @@
   {
    "fieldname": "originaladdress",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Original address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "coordinate",
+   "fieldtype": "Text",
+   "label": "Coordinate",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-08-24 14:41:14.161915",
+ "modified": "2021-08-24 15:05:14.439030",
  "modified_by": "Administrator",
  "module": "Logistics",
- "name": "Logistics",
+ "name": "Logistics item",
  "owner": "Administrator",
  "permissions": [
   {

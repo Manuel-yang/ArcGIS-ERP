@@ -1,7 +1,20 @@
 {
  "category": "",
- "charts": [],
- "content": "[{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"Your Shortcuts\",\"level\":4,\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier\",\"col\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leaderboard\",\"col\":4}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"Reports &amp; Masters\",\"level\":4,\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"Accounting\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Stock\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Human Resources\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"CRM\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Data Import and Settings\",\"col\":4}}]",
+ "charts": [
+  {
+   "chart_name": "Purchase Order Trends",
+   "label": "\u91c7\u8d2d\u8ba2\u5355"
+  },
+  {
+   "chart_name": "Sales Order Trends",
+   "label": "\u8ba2\u5355\u9500\u552e"
+  },
+  {
+   "chart_name": "Project Summary",
+   "label": "\u9879\u76ee"
+  }
+ ],
+ "content": "[{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"chart\",\"data\":{\"chart_name\":\"\u8ba2\u5355\u9500\u552e\",\"col\":12}},{\"type\":\"chart\",\"data\":{\"chart_name\":\"\u91c7\u8d2d\u8ba2\u5355\",\"col\":12}},{\"type\":\"chart\",\"data\":{\"chart_name\":\"\u9879\u76ee\",\"col\":12}},{\"type\":\"spacer\",\"data\":{\"col\":12}},{\"type\":\"header\",\"data\":{\"text\":\"Reports &amp; Masters\",\"level\":4,\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"CRM\",\"col\":4}}]",
  "creation": "2020-01-23 13:46:38.833076",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
@@ -17,14 +30,6 @@
  "is_standard": 0,
  "label": "Home",
  "links": [
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Accounting",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
-  },
   {
    "dependencies": "",
    "hidden": 0,
@@ -68,14 +73,6 @@
    "link_type": "DocType",
    "onboard": 1,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Stock",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
   },
   {
    "dependencies": "",
@@ -131,14 +128,6 @@
    "link_type": "DocType",
    "onboard": 1,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Human Resources",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
   },
   {
    "dependencies": "",
@@ -215,14 +204,6 @@
    "type": "Link"
   },
   {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Data Import and Settings",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
@@ -278,8 +259,8 @@
    "type": "Link"
   }
  ],
- "modified": "2021-08-10 15:33:20.704740",
- "modified_by": "Administrator",
+ "modified": "2021-08-27 18:24:14.902680",
+ "modified_by": "test@example.com",
  "module": "Setup",
  "name": "Home",
  "onboarding": "",
@@ -291,32 +272,6 @@
  "restrict_to_domain": "",
  "roles": [],
  "sequence_id": 1,
- "shortcuts": [
-  {
-   "label": "Item",
-   "link_to": "Item",
-   "type": "DocType"
-  },
-  {
-   "label": "Customer",
-   "link_to": "Customer",
-   "type": "DocType"
-  },
-  {
-   "label": "Supplier",
-   "link_to": "Supplier",
-   "type": "DocType"
-  },
-  {
-   "label": "Sales Invoice",
-   "link_to": "Sales Invoice",
-   "type": "DocType"
-  },
-  {
-   "label": "Leaderboard",
-   "link_to": "leaderboard",
-   "type": "Page"
-  }
- ],
+ "shortcuts": [],
  "title": "Home"
 }
